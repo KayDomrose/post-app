@@ -4,20 +4,33 @@
  */
 
 import React from 'react';
-import Helmet from 'react-helmet';
-import Headline from '../components/helpers/layout/Headline';
-import Layout from '../components/helpers/layout/Layout';
+import { ThemeProvider } from 'react-jss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import GlobalCss from '../components/helpers/layout/GlobalCss';
+import Main from '../components/helpers/layout/Main';
+import BottomBar from '../components/modules/BottomBar';
+import Header from '../components/modules/Header';
+import HomeScreen from '../components/screens/HomeScreen';
+import StoreProvider from '../providers/StoreProvider';
+import theme from '../theme';
 
 const IndexPage = () => (
-    <>
-        <Helmet>
-            {/* Read values from .env */}
-            <title>{process.env.GATSBY_EXAMPLE_CONFIG}</title>
-        </Helmet>
-        <Layout>
-            <Headline>Hello World</Headline>
-        </Layout>
-    </>
+    <ThemeProvider theme={theme}>
+        <StoreProvider>
+            <BrowserRouter>
+                <>
+                    <GlobalCss />
+                    <Header />
+                    <Main>
+                        <Switch>
+                            <Route exact={true} path="/" component={HomeScreen} />
+                        </Switch>
+                    </Main>
+                    <BottomBar />
+                </>
+            </BrowserRouter>
+        </StoreProvider>
+    </ThemeProvider>
 );
 
 export default IndexPage;

@@ -3,6 +3,13 @@
  * Kay Domrose <kay.domrose@gmail.com>
  */
 
-/**
- * Save custom types here.
- */
+export interface IWebsocketResult {
+    onlineUsers: IWSOnlineUser[];
+}
+
+export interface IWSOnlineUser {
+    displayString: string;
+    first_seen: number;
+    icon: string;
+    rank: number;
+}

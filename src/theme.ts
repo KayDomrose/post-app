@@ -5,30 +5,34 @@
 
 const palette = {
     main: {
-        background: '#fff',
-        text: 'rgba(0, 0, 0, 0.9)',
+        primary: '#fff',
+        contrast: 'rgba(0, 0, 0, 0.9)',
+        contrastLite: 'rgba(0, 0, 0, 0.5)',
     },
     second: {},
-    ci: {},
+    ci: {
+        primary: 'orange',
+        contrast: '#fff',
+    },
     ciSecond: {},
 };
 
 const theme = {
     typography: {
         normal: {
-            size: 20,
+            size: 18,
             weight: 300,
-            table: 16,
+            family: '"Abel", sans-serif',
         },
         headline: {
-            size: 50,
+            size: 26,
             weight: 700,
-            tablet: 24,
+            family: '"Abel", sans-serif',
         },
     },
     spacing: {
         inner: 15,
-        outer: 60,
+        outer: 30,
     },
     palette,
     border: {},
@@ -41,7 +45,14 @@ const theme = {
     shadows: {
         first: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
     },
-    modules: {},
+    modules: {
+        header: {
+            height: 30,
+        },
+        bottomBar: {
+            height: 50,
+        },
+    },
 };
 
 export type ITheme = typeof theme;

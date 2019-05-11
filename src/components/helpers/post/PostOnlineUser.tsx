@@ -48,12 +48,7 @@ const formatDuration = (duration, formatString) => {
 };
 
 const PostOnlineUser = ({ classes, onlineUser }: IProps) => {
-    const formattedTimeStamp = onlineUser.first_seen
-        .toString()
-        .replace('.', '')
-        .slice(0, -3);
-
-    const secondsDiff = moment().diff(parseInt(formattedTimeStamp, 0), 'seconds');
+    const secondsDiff = moment().diff(onlineUser.first_seen * 1000, 's');
     const diff = moment.duration(secondsDiff, 's');
 
     return (
@@ -79,18 +74,18 @@ const styles = (theme: ITheme) => ({
         gridGap: `${theme.spacing.inner}px`,
     },
     name: {
-        fontSize: theme.typography.normal.size * 1.4,
+        fontSize: theme.typography.headline.size,
     },
     time: {
         textAlign: 'right',
         '& .l': {
             color: theme.palette.main.contrastLite,
             '&:not(:last-child)': {
-                paddingRight: 5,
+                paddingRight: theme.spacing.mini,
             },
         },
         '& .v': {
-            fontSize: theme.typography.normal.size * 1.4,
+            fontSize: theme.typography.headline.size,
         },
     },
 });

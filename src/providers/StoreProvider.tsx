@@ -4,10 +4,11 @@
  */
 
 import React, { createContext, useEffect, useState } from 'react';
-import { IWebsocketResult, IWSOnlineUser } from '../types';
+import { IWebsocketResult, IWSOnlineUser, IWSRoomData } from '../types';
 
 export interface IStoreContext {
     onlineUsers: IWSOnlineUser[];
+    roomData: IWSRoomData[];
     title: string;
 }
 
@@ -22,6 +23,7 @@ export { StoreContext };
 const StoreProvider = ({ children }: IProps) => {
     const [title, setTitle] = useState('Post');
     const [onlineUsers, setOnlineUsers] = useState([] as IWSOnlineUser[]);
+    const [roomData, setRoomData] = useState([] as IWSRoomData[]);
 
     useEffect(() => {
         const websocket = new WebSocket('wss://post.alexcloud.net/ws/client');
@@ -30,6 +32,7 @@ const StoreProvider = ({ children }: IProps) => {
             const data: IWebsocketResult = JSON.parse(e.data);
 
             setOnlineUsers(data.onlineUsers);
+            setRoomData(data.roomData);
         };
     }, []);
 
@@ -37,6 +40,7 @@ const StoreProvider = ({ children }: IProps) => {
         <StoreContext.Provider
             value={{
                 onlineUsers,
+                roomData,
                 title,
             }}
         >

@@ -11,7 +11,7 @@ const palette = {
     },
     second: {},
     ci: {
-        primary: 'orange',
+        primary: '#fd6e00',
         contrast: '#fff',
     },
     ciSecond: {},
@@ -31,6 +31,7 @@ const theme = {
         },
     },
     spacing: {
+        mini: 5,
         inner: 15,
         outer: 30,
     },
@@ -47,7 +48,7 @@ const theme = {
     },
     modules: {
         header: {
-            height: 30,
+            height: 50,
         },
         bottomBar: {
             height: 50,

@@ -31,6 +31,8 @@ const styles = (theme: ITheme) => ({
             margin: 0,
             fontWeight: theme.typography.headline.weight,
             fontFamily: theme.typography.headline.family,
+            marginBottom: theme.spacing.outer,
+            color: theme.palette.ci.primary,
         },
     },
 });

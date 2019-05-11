@@ -22,19 +22,21 @@ const Header = ({ classes }: IProps) => {
 
 const styles = (theme: ITheme) => ({
     header: {
-        display: 'grid',
-        gridTemplateColumns: 'auto 1fr',
-        gridGap: `${theme.spacing.outer}px`,
+        paddingLeft: theme.spacing.outer,
         position: 'fixed',
         top: 0,
         left: 0,
         width: '100vw',
         background: theme.palette.ci.primary,
+        height: theme.modules.header.height,
+        display: 'grid',
+        alignItems: 'center',
     },
     title: {
         fontSize: theme.typography.headline.size,
         fontWeight: theme.typography.headline.weight,
         color: theme.palette.ci.contrast,
+        margin: 0,
     },
 });
 

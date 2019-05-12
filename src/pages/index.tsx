@@ -11,6 +11,7 @@ import Main from '../components/helpers/layout/Main';
 import BottomBar from '../components/modules/BottomBar';
 import Header from '../components/modules/Header';
 import HomeScreen from '../components/screens/HomeScreen';
+import RankingScreen from '../components/screens/RankingScreen';
 import StoreProvider from '../providers/StoreProvider';
 import theme from '../theme';
 
@@ -35,6 +36,7 @@ const IndexPage = () => {
                         <Main>
                             <Switch>
                                 <Route exact={true} path="/" component={HomeScreen} />
+                                <Route path="/ranking" component={RankingScreen} />
                             </Switch>
                         </Main>
                         <BottomBar />

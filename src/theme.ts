@@ -5,9 +5,9 @@
 
 const palette = {
     main: {
-        primary: '#fff',
-        contrast: 'rgba(0, 0, 0, 0.9)',
-        contrastLite: 'rgba(0, 0, 0, 0.5)',
+        primary: '#1a0d00',
+        contrast: 'rgba(255,255,255,0.9)',
+        contrastLite: 'rgba(255,255,255,0.5)',
     },
     second: {},
     ci: {

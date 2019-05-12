@@ -4,7 +4,7 @@
  */
 
 import * as moment from 'moment';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import injectSheet, { WithSheet } from 'react-jss';
 import { IStoreContext, StoreContext } from '../../providers/StoreProvider';
 import { ITheme } from '../../theme';
@@ -57,7 +57,11 @@ const values = (key, value) => {
 };
 
 const HomeScreen = ({ classes }: IProps) => {
-    const { onlineUsers, roomData }: IStoreContext = useContext(StoreContext);
+    const { onlineUsers, roomData, setAppTitle }: IStoreContext = useContext(StoreContext);
+
+    useEffect(() => {
+        setAppTitle('Post');
+    }, []);
 
     return (
         <div className={classes.wrapper}>

@@ -6,6 +6,7 @@
 export interface IWebsocketResult {
     onlineUsers: IWSOnlineUser[];
     roomData: IWSRoomData[];
+    positionTableData: IWSRakingUser[];
 }
 
 export interface IWSOnlineUser {
@@ -21,4 +22,10 @@ export interface IWSRoomData {
     humidity: number;
     temperature: number;
     timestamp: number;
+}
+
+export interface IWSRakingUser {
+    displayString: string;
+    uptime: number;
+    last_seen: number;
 }
